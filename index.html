@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afitap Bar Menu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .menu-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f1c40f;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .menu-item:hover {
+            background-color: #f1c40f;
+            color: #2c3e50;
+        }
+        .price {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="logo">
+            <img src="./logo.png" alt="Afitap Logo">
+        </div>
+        
+        <h2>Vodka</h2>
+        <div class="menu-item">
+            <span>İstanblue (30ml)</span>
+            <span class="price">₺40</span>
+        </div>
+        <div class="menu-item">
+            <span>Absolute (30ml)</span>
+            <span class="price">₺60</span>
+        </div>
+        
+        <h2>Whiskey</h2>
+        <div class="menu-item">
+            <span>Chivas (30ml)</span>
+            <span class="price">₺45</span>
+        </div>
+        <div class="menu-item">
+            <span>Jack Daniels (30ml)</span>
+            <span class="price">₺75</span>
+        </div>
+        
+        <h2>Cocktails</h2>
+        <div class="menu-item">
+            <span>Mojito</span>
+            <span class="price">₺65</span>
+        </div>
+        <div class="menu-item">
+            <span>Old Fashioned</span>
+            <span class="price">₺70</span>
+        </div>
+        
+        <h2>Beer</h2>
+        <div class="menu-item">
+            <span>Tuborg Fıçı (33cl)</span>
+            <span class="price">₺35</span>
+        </div>
+        <div class="menu-item">
+            <span>Carlsberg </span>
+            <span class="price">₺70</span>
+        </div>
+        <div class="menu-item">
+            <span>Tuborg Gold</span>
+            <span class="price">₺65</span>
+        </div>
+        <div class="menu-item">
+            <span>Efes</span>
+            <span class="price">₺60</span>
+        </div>
+    </div>
+</body>
+</html>
