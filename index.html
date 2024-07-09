@@ -6,7 +6,6 @@
     <title>Afitap Bar Menu</title>
     <style>
         :root {
-
             --text-color: #F33;
         }
         body {
@@ -71,16 +70,24 @@
         }
         .item-details {
             flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 15px;
+        }
+        .item-name {
+            flex-grow: 1;
         }
         .price {
             font-weight: bold;
             color: var(--text-color);
+            margin-left: 15px;
+            font-size: 1.1em;
         }
         .item-image {
             width: 50px;
             height: 50px;
             border-radius: 25px;
-            margin-right: 10px;
             cursor: pointer;
         }
         .modal {
@@ -115,6 +122,11 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .note {
+            color: var(--text-color);
+            text-align: center;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -123,6 +135,7 @@
             <img src="./assets/logo.png" alt="Afitap Logo">
         </div>
         <h1>Afitap Bar Menu</h1>
+        <p class="note">(Şişe siparişlerinde meyve ve yancılar ikramımızdır)</p>
         
         <div class="menu-section">
             <div class="menu-header">Vodka</div>
@@ -130,14 +143,14 @@
                 <div class="menu-item">
                     <img src="./assets/istanblue.png" alt="House Vodka" class="item-image">
                     <div class="item-details">
-                        <span>İstanblue (30ml)</span>
+                        <span class="item-name">House Vodka (30ml)</span>
                         <span class="price">₺40</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <img src="/api/placeholder/100/100" alt="Premium Vodka" class="item-image">
                     <div class="item-details">
-                        <span>Premium Vodka (30ml)</span>
+                        <span class="item-name">Premium Vodka (30ml)</span>
                         <span class="price">₺60</span>
                     </div>
                 </div>
@@ -148,16 +161,16 @@
             <div class="menu-header">Whiskey</div>
             <div class="menu-items">
                 <div class="menu-item">
-                    <img src="./assets/chivas.png" alt="Chivas" class="item-image">
+                    <img src="./assets/chivas.png" alt="House Whiskey" class="item-image">
                     <div class="item-details">
-                        <span>Chivas (30ml)</span>
+                        <span class="item-name">House Whiskey (30ml)</span>
                         <span class="price">₺45</span>
                     </div>
                 </div>
                 <div class="menu-item">
                     <img src="/api/placeholder/100/100" alt="Single Malt Scotch" class="item-image">
                     <div class="item-details">
-                        <span>Single Malt Scotch (30ml)</span>
+                        <span class="item-name">Single Malt Scotch (30ml)</span>
                         <span class="price">₺75</span>
                     </div>
                 </div>
@@ -177,7 +190,7 @@
         document.querySelectorAll('.menu-header').forEach(header => {
             header.addEventListener('click', () => {
                 const items = header.nextElementSibling;
-                items.style.display = items.style.display === 'none' ? 'block' : 'none';
+                items.style.display = items.style.display === 'block' ? 'none' : 'block';
             });
         });
 
