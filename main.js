@@ -16,22 +16,25 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const querySnapshot = await getDocs(collection(db, "products"));
-const data = querySnapshot.docs.map(doc => doc.data());
 
-function setCategoryAsIndex(data) {
-  let newData = {};
-  for (let i = 0; i < data.length; i++) {
-    if (!newData[data[i].category]) {
-      newData[data[i].category] = [];
+async function getData() {
+
+  const querySnapshot = await getDocs(collection(db, "products"));
+  const data = querySnapshot.docs.map(doc => doc.data());
+
+  function setCategoryAsIndex(data) {
+    let newData = {};
+    for (let i = 0; i < data.length; i++) {
+      if (!newData[data[i].category]) {
+        newData[data[i].category] = [];
+      }
+      newData[data[i].category].push(data[i]);
     }
-    newData[data[i].category].push(data[i]);
+    return newData;
   }
-  return newData;
+
+  return setCategoryAsIndex(data);
 }
-
-const newData = setCategoryAsIndex(data);
-
 
 function createSection(data) {
   const menuContainer = document.querySelector('.menu-container');
@@ -67,35 +70,41 @@ function createSection(data) {
   }
 }
 
-createSection(newData);
+getData().then(data => {
+  createSection(data);
 
-
-// Toggle menu sections
-document.querySelectorAll('.menu-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const items = header.nextElementSibling;
-    items.style.display = items.style.display === 'block' ? 'none' : 'block';
+  // Toggle menu sections
+  document.querySelectorAll('.menu-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const items = header.nextElementSibling;
+      items.style.display = items.style.display === 'block' ? 'none' : 'block';
+    });
   });
-});
 
-// Image preview
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImage');
-const closeBtn = document.getElementsByClassName('close')[0];
+  // Image preview
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const closeBtn = document.getElementsByClassName('close')[0];
 
-document.querySelectorAll('.item-image').forEach(img => {
-  img.onclick = function() {
-    modal.style.display = 'block';
-    modalImg.src = this.src;
-  }
-});
+  document.querySelectorAll('.item-image').forEach(img => {
+    img.onclick = function() {
+      modal.style.display = 'block';
+      modalImg.src = this.src;
+    }
+  });
 
-closeBtn.onclick = function() {
-  modal.style.display = 'none';
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
+  closeBtn.onclick = function() {
     modal.style.display = 'none';
   }
-}
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+}).catch(error => {
+  console.error(error);
+})
+
+
+
