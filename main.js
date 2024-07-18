@@ -18,10 +18,7 @@ const db = getFirestore(app);
 
 function sortObjectKeys(obj) {
   // Retrieve the keys of the object
-  const keys = Object.keys(obj);
-
-  // Sort the keys alphabetically
-  keys.sort();
+  const keys = ["Viski", "Votka", "Cin", "Rakı", "Bira", "Duble"];
 
   // Create a new object and populate it with the sorted keys
   const sortedObj = {};
