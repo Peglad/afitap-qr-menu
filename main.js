@@ -26,6 +26,12 @@ function sortObjectKeys(obj) {
     sortedObj[key] = obj[key];
   });
 
+  // Append the remainder
+  const remainderKeys = Object.keys(obj).filter(key => !keys.includes(key));
+  remainderKeys.forEach(key => {
+    sortedObj[key] = obj[key];
+  });
+
   return sortedObj;
 }
 
