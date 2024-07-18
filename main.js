@@ -15,6 +15,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+
+function sortObjectKeys(obj) {
+  // Retrieve the keys of the object
+  const keys = Object.keys(obj);
+
+  // Sort the keys alphabetically
+  keys.sort();
+
+  // Create a new object and populate it with the sorted keys
+  const sortedObj = {};
+  keys.forEach(key => {
+    sortedObj[key] = obj[key];
+  });
+
+  return sortedObj;
+}
+
 async function getData() {
 
   const querySnapshot = await getDocs(collection(db, "products"));
@@ -31,6 +48,9 @@ async function getData() {
     for (let category in newData) {
       newData[category] = newData[category].sort((a, b) => a.name.localeCompare(b.name));
     }
+
+    newData = sortObjectKeys(newData);
+
     return newData;
   }
 
