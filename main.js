@@ -61,7 +61,7 @@ function createSection(data) {
         <img src="${image_path}" alt="${data[category][i].name}" class="item-image">
         <div class="item-details">
           <span class="item-name">${data[category][i].name}</span>
-          <span class="price">${data[category][i].price} ₺</span>
+          <span class="price">${data[category][i].price}₺</span>
         </div>
       `;
       menuItems.appendChild(menuItem);
