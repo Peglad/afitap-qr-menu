@@ -28,6 +28,9 @@ async function getData() {
       }
       newData[data[i].category].push(data[i]);
     }
+    for (let category in newData) {
+      newData[category] = newData[category].sort((a, b) => a.name.localeCompare(b.name));
+    }
     return newData;
   }
 
