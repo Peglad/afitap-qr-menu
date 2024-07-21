@@ -62,6 +62,7 @@ async function getData() {
 
 function createSection(data) {
   const menuContainer = document.querySelector('.menu-container');
+
   for (let category in data) {
     const menuSection = document.createElement('div');
     menuSection.classList.add('menu-section');
@@ -74,6 +75,11 @@ function createSection(data) {
 
     const menuItems = document.createElement('div');
     menuItems.classList.add('menu-items');
+
+    const p = document.createElement('p');
+    p.innerHTML = 'Meyve ve soft içeceklerimiz ikramdır';
+    menuItems.appendChild(p);
+    p.classList.add('info-text');
 
     for (let i = 0; i < data[category].length; i++) {
 

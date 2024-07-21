@@ -135,3 +135,12 @@ h1 {
     text-decoration: none;
     cursor: pointer;
 }
+
+.info-text {
+    text-align: center;
+    color: #f1c40f;
+    font-size: .9em;
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
