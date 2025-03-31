@@ -53,11 +53,15 @@ async function getData() {
     }
 
     newData = sortObjectKeys(newData);
+    delete newData["Rakı"];
 
     return newData;
   }
 
-  return setCategoryAsIndex(data);
+  const newData = setCategoryAsIndex(data);
+  console.log(newData);
+
+  return newData;
 }
 
 function createSection(data) {
